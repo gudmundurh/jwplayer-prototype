@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>JW FLV Player Prototype-interface</title>
+  <script type="text/javascript" src="dist/prototype-1.6.0.3.js"></script>
+  <script type="text/javascript" src="dist/swfobject2.js"></script>
+  <script type="text/javascript" src="jwplayer.js"></script>
+  <script type="text/javascript">
+    Event.observe(document, 'dom:loaded', function() {
+      var jwplayer = new JWPlayer('player', {
+        file: 'video.flv',
+        width: 475,
+        height: 300
+      });
+      jwplayer.observe('model:time', function(event) {
+        $('time').update(event.position);
+      });
+      jwplayer.observe('model:state', function(event) {
+        $('state').update(event.newstate);
+      });
+    });
+  </script>
+</head>
+<body>
+  <h1>Demo of JWPlayer JS-interface</h1>
+  
+  <p>To try out the demo, 
+    <a href="http://www.longtailvideo.com/players/jw-flv-player/">download the newest version of JW FLV Player</a> 
+    (currently 4.3) and extract it to the <code>jwplayer</code> directory, under the same directory as
+    this file.
+  </p>
+  
+  <div id="player"></div>
+
+  <p>Current position: <span id="time"></span></p>
+  <p>Current state: <span id="state"></span></p>
+</body>
+</html>

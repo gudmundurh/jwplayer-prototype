@@ -1,0 +1,18 @@
+h1. A Prototype-wrapper around JW FLV Player
+
+This package contains a class that wraps around JW FLV Player. It 
+integrates with/uses Prototype and makes it much nicer to work with the 
+player in JavaScript than just using the default JavaScript interface.
+
+Example:
+
+<pre>
+var jwplayer = new JWPlayer('container-element-id', {
+  file: 'video.flv',
+  width: 475,
+  height: 300
+});
+jwplayer.observe('model:time', function(event) {
+  console.log(event.position);
+});
+</pre>
