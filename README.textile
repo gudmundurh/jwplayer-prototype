@@ -1,8 +1,18 @@
 h1. A Prototype-wrapper around JW FLV Player
 
-This package contains a class that wraps around JW FLV Player. It 
-integrates with/uses Prototype and makes it much nicer to work with the 
-player in JavaScript than just using the default JavaScript interface.
+This package consists of a wrapper class around JW FLV Player. It 
+makes it much nicer to work with the player in JavaScript 
+than by just using the default interface.
+
+Featues:
+* The class frees the programmer from worrying about when the player is
+  loaded. It is thus save to add event handlers or call
+  commands before the player is ready.
+  
+* The class mimicks Prototype's event handling.
+  
+* Commands, such as play, pause and skip, are regular instance methods.
+  This removes the need to call <code>sendEvent</code> over and over again.
 
 Example:
 
@@ -15,4 +25,12 @@ var jwplayer = new JWPlayer('container-element-id', {
 jwplayer.observe('model:time', function(event) {
   console.log(event.position);
 });
+jwplayer.setFullscreen(true);
+jwplayer.play();
 </pre>
+
+h2. Requirements
+
+This small utility is rather demanding in requirements by requiring Prototype, 
+however, it could easily be made framework independent. Uses swfobject 2 to 
+embed the Flash player.

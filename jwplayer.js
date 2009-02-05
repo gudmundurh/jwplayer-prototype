@@ -3,7 +3,7 @@
 /**
  * class JWPlayer
  *
- * A convenince class that wraps JW FLV Media Player 4.3, handling loading and configuration
+ * A convenince class that wraps JW FLV Media Player 4.x, handling loading and configuration
  * of the player as well as providing simple object-orientated JavaScript interface to it.
  * 
  * Event handling is done Prototype-style, via JWPlayer#observe. 
